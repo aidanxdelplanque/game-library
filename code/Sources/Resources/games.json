@@ -4,8 +4,9 @@
     "title": "The Legend of Zelda: Ocarina of Time",
     "platform": "n64",
     "launchType": "app",
-    "appPath": "/Users/aidan/Emulators/Nintendo/Ship of Harkinian/SoH-Ackbar-Bravo-Mac/SoH.dmg",
-    "status": "untested"
+    "appPath": "/Applications/soh.app",
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg"
   },
   {
     "id": "A1B2C3D4-0001-0001-0001-000000000002",
@@ -13,7 +14,8 @@
     "platform": "n64",
     "launchType": "app",
     "appPath": "/Users/aidan/Emulators/Nintendo/2 Ship 2 Harkinian/2s2h.app",
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/6/60/The_Legend_of_Zelda_-_Majora%27s_Mask_Box_Art.jpg"
   },
   {
     "id": "A1B2C3D4-0001-0001-0001-000000000003",
@@ -21,7 +23,8 @@
     "platform": "n64",
     "launchType": "app",
     "appPath": "/Users/aidan/Emulators/Nintendo/sm64ex/sm64ex.app",
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/e/e9/Super_Mario_64.png"
   },
   {
     "id": "A1B2C3D4-0002-0001-0001-000000000001",
@@ -31,7 +34,8 @@
     "appPath": "/Applications/Cemu.app",
     "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - Breath of the Wild (USA) (EnFrEs)/Legend of Zelda, The - Breath of the Wild (USA) (En,Fr,Es).wux",
     "emulatorArgs": ["-g"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/c/c6/The_Legend_of_Zelda_Breath_of_the_Wild.jpg"
   },
   {
     "id": "A1B2C3D4-0002-0001-0001-000000000002",
@@ -41,7 +45,8 @@
     "appPath": "/Applications/Cemu.app",
     "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - The Wind Waker HD (USA Asia) (EnFrEs)/Legend of Zelda, The - The Wind Waker HD (USA, Asia) (En,Fr,Es).wux",
     "emulatorArgs": ["-g"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/7/79/The_Legend_of_Zelda_The_Wind_Waker.jpg"
   },
   {
     "id": "A1B2C3D4-0002-0001-0001-000000000003",
@@ -51,7 +56,8 @@
     "appPath": "/Applications/Cemu.app",
     "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - Twilight Princess HD (USA) (EnFrEs) (Rev 2)/Legend of Zelda, The - Twilight Princess HD (USA) (En,Fr,Es) (Rev 2).wux",
     "emulatorArgs": ["-g"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/0/0e/The_Legend_of_Zelda_Twilight_Princess_Game_Cover.jpg"
   },
   {
     "id": "A1B2C3D4-0002-0001-0001-000000000004",
@@ -61,7 +67,8 @@
     "appPath": "/Applications/Cemu.app",
     "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Assassins Creed IV - Black Flag (USA) (EnFrEsPt)/Assassin's Creed IV - Black Flag (USA) (En,Fr,Es,Pt).wux",
     "emulatorArgs": ["-g"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/2/28/Assassin%27s_Creed_IV_-_Black_Flag_cover.jpg"
   },
   {
     "id": "A1B2C3D4-0003-0001-0001-000000000001",
@@ -70,7 +77,8 @@
     "launchType": "emulatorWithROM",
     "appPath": "/Users/aidan/Emulators/Nintendo/citra/nightly/citra-qt.app",
     "romPath": "/Users/aidan/Emulators/Nintendo/citra/Legend of Zelda, The - A Link Between Worlds (USA) (En,Fr,Es).3ds",
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/1/1b/The_Legend_of_Zelda_A_Link_Between_Worlds_NA_cover.jpg"
   },
   {
     "id": "A1B2C3D4-0004-0001-0001-000000000001",
@@ -79,7 +87,8 @@
     "launchType": "custom",
     "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
     "emulatorArgs": ["--game", "jak1"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/b/b6/Jak_and_Daxter_-_The_Precursor_Legacy_Coverart.png"
   },
   {
     "id": "A1B2C3D4-0004-0001-0001-000000000002",
@@ -88,7 +97,8 @@
     "launchType": "custom",
     "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
     "emulatorArgs": ["--game", "jak2"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/b/b3/JakIIbox.jpg"
   },
   {
     "id": "A1B2C3D4-0004-0001-0001-000000000003",
@@ -97,7 +107,8 @@
     "launchType": "custom",
     "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
     "emulatorArgs": ["--game", "jak3"],
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/e/ec/Jak_3_Coverart.png"
   },
   {
     "id": "A1B2C3D4-0004-0001-0001-000000000004",
@@ -105,7 +116,8 @@
     "platform": "ps2",
     "launchType": "app",
     "appPath": "",
-    "status": "broken"
+    "status": "broken",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/8/8e/SlyCooper2002cover.jpg"
   },
   {
     "id": "A1B2C3D4-0006-0001-0001-000000000001",
@@ -113,7 +125,8 @@
     "platform": "pc",
     "launchType": "app",
     "appPath": "/Users/aidan/Emulators/PC/DevilutionX/devilutionX.app",
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/3/3a/Diablo_Coverart.png"
   },
   {
     "id": "A1B2C3D4-0006-0001-0001-000000000002",
@@ -121,7 +134,8 @@
     "platform": "pc",
     "launchType": "app",
     "appPath": "/Users/aidan/Emulators/PC/Fallout 1 CE/Fallout Community Edition.app",
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/a/af/Fallout.jpg"
   },
   {
     "id": "A1B2C3D4-0006-0001-0001-000000000003",
@@ -129,6 +143,7 @@
     "platform": "pc",
     "launchType": "app",
     "appPath": "/Users/aidan/Emulators/PC/Fallout 2 CE/Fallout II Community Edition.app",
-    "status": "untested"
+    "status": "untested",
+    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/c/c3/PC_Game_Fallout_2.jpg"
   }
 ]

@@ -30,69 +30,52 @@ struct GameCardView: View {
 
     var body: some View {
         Button(action: onLaunch) {
-            ZStack(alignment: .bottom) {
-                // Cover art or fallback colored rectangle, in 2:3 aspect ratio
-                if let coverImage {
-                    Image(nsImage: coverImage)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                        .clipped()
-                        .aspectRatio(2.0 / 3.0, contentMode: .fit)
-                        .clipShape(RoundedRectangle(cornerRadius: 8))
-                } else {
-                    RoundedRectangle(cornerRadius: 8)
-                        .fill(platformColor.gradient)
-                        .aspectRatio(2.0 / 3.0, contentMode: .fit)
-                }
-
-                // Overlays (platform badge + status dot + title) on top of everything
-                RoundedRectangle(cornerRadius: 8)
-                    .fill(.clear)
-                    .aspectRatio(2.0 / 3.0, contentMode: .fit)
-                    .overlay(alignment: .topTrailing) {
-                        // Platform badge
-                        Text(game.platform.shortName)
-                            .font(.caption2.bold())
-                            .foregroundStyle(.white)
-                            .padding(.horizontal, 6)
-                            .padding(.vertical, 3)
-                            .background(.black.opacity(0.5), in: Capsule())
-                            .padding(8)
-                    }
-                    .overlay(alignment: .bottomTrailing) {
-                        // Status indicator
-                        Circle()
-                            .fill(statusColor)
-                            .frame(width: 8, height: 8)
-                            .shadow(color: statusColor.opacity(0.5), radius: 2)
-                            .padding(10)
+            VStack(spacing: 8) {
+                // Cover art area
+                ZStack(alignment: .topTrailing) {
+                    if let coverImage {
+                        Image(nsImage: coverImage)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(minWidth: 0, maxWidth: .infinity)
+                            .aspectRatio(3.0 / 4.0, contentMode: .fit)
+                            .clipped()
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
+                    } else {
+                        RoundedRectangle(cornerRadius: 10)
+                            .fill(platformColor.gradient)
+                            .aspectRatio(3.0 / 4.0, contentMode: .fit)
                     }
 
-                // Title bar at the bottom
-                VStack {
-                    Spacer()
-                    Text(game.title)
-                        .font(.caption.bold())
+                    // Platform badge
+                    Text(game.platform.shortName)
+                        .font(.caption2.bold())
                         .foregroundStyle(.white)
-                        .multilineTextAlignment(.center)
-                        .lineLimit(2)
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 10)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            LinearGradient(
-                                colors: [.clear, .black.opacity(0.7)],
-                                startPoint: .top,
-                                endPoint: .bottom
-                            )
-                        )
+                        .padding(.horizontal, 6)
+                        .padding(.vertical, 3)
+                        .background(.black.opacity(0.55), in: Capsule())
+                        .padding(8)
                 }
-                .clipShape(RoundedRectangle(cornerRadius: 8))
+
+                // Title and status below the art
+                HStack(alignment: .top, spacing: 4) {
+                    Circle()
+                        .fill(statusColor)
+                        .frame(width: 7, height: 7)
+                        .padding(.top, 4)
+
+                    Text(game.title)
+                        .font(.subheadline.weight(.medium))
+                        .foregroundStyle(.primary)
+                        .lineLimit(2)
+                        .multilineTextAlignment(.leading)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(.horizontal, 4)
             }
-            .scaleEffect(isLaunching ? 0.95 : (isHovered ? 1.04 : 1.0))
+            .scaleEffect(isLaunching ? 0.95 : (isHovered ? 1.03 : 1.0))
             .opacity(isLaunching ? 0.6 : 1.0)
-            .shadow(color: .black.opacity(isHovered ? 0.3 : 0.15), radius: isHovered ? 8 : 4)
+            .shadow(color: .black.opacity(isHovered ? 0.25 : 0.1), radius: isHovered ? 8 : 4, y: isHovered ? 4 : 2)
             .animation(.easeOut(duration: 0.15), value: isHovered)
             .animation(.easeInOut(duration: 0.2), value: isLaunching)
             .onHover { hovering in
