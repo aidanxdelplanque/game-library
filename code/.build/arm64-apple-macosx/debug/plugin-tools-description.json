@@ -1,0 +1,296 @@
+{
+  "builtTestProducts" : [
+
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.GameLibrary-arm64-apple-macosx-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources",
+      "importPath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/Models/Game.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources"
+        }
+      ],
+      "isLibrary" : false,
+      "moduleName" : "GameLibrary",
+      "moduleOutputPath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules/GameLibrary.swiftmodule",
+      "objects" : [
+        "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o",
+        "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o",
+        "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o",
+        "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx14.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j10",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-Xfrontend",
+        "-entry-point-function-name",
+        "-Xfrontend",
+        "GameLibrary_main",
+        "-swift-version",
+        "5",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "code"
+      ],
+      "outputFileMapPath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules/GameLibrary.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift",
+        "/Users/aidan/projects/game-library/code/Sources/Models/Game.swift",
+        "/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift",
+        "/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift"
+      ],
+      "tempsPath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "GameLibrary" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "GameLibrary",
+      "-package-name",
+      "code",
+      "-c",
+      "/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift",
+      "/Users/aidan/projects/game-library/code/Sources/Models/Game.swift",
+      "/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift",
+      "/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift",
+      "-I",
+      "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx14.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j10",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-Xfrontend",
+      "-entry-point-function-name",
+      "-Xfrontend",
+      "GameLibrary_main",
+      "-swift-version",
+      "5",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "code",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "GameLibrary" : [
+
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<entitlement-plist>"
+        },
+        {
+          "kind" : "virtual",
+          "name" : "<com.apple.security.get-task-allow>"
+        }
+      ],
+      "outputFilePath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist"
+    },
+    "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/Models/Game.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources"
+    },
+    "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList"
+    },
+    "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

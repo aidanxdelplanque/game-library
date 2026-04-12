@@ -1,0 +1,81 @@
+client:
+  name: basic
+  file-system: device-agnostic
+tools: {}
+targets:
+  "GameLibrary-arm64-apple-macosx-debug.exe": ["<GameLibrary-arm64-apple-macosx-debug.exe>"]
+  "GameLibrary-arm64-apple-macosx-debug.module": ["<GameLibrary-arm64-apple-macosx-debug.module>"]
+  "PackageStructure": ["<PackageStructure>"]
+  "main": ["<GameLibrary-arm64-apple-macosx-debug.exe>","<GameLibrary-arm64-apple-macosx-debug.module>"]
+  "test": ["<GameLibrary-arm64-apple-macosx-debug.exe>","<GameLibrary-arm64-apple-macosx-debug.module>"]
+default: "main"
+nodes:
+  "/Users/aidan/projects/game-library/code/Sources/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary":
+    is-mutated: true
+commands:
+  "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist":
+    tool: write-auxiliary-file
+    inputs: ["<entitlement-plist>","<com.apple.security.get-task-allow>"]
+    outputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist"]
+    description: "Write auxiliary file /Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist"
+
+  "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources":
+    tool: write-auxiliary-file
+    inputs: ["<sources-file-list>","/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift","/Users/aidan/projects/game-library/code/Sources/Models/Game.swift","/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift","/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift"]
+    outputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources"]
+    description: "Write auxiliary file /Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources"
+
+  "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList":
+    tool: write-auxiliary-file
+    inputs: ["<link-file-list>","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o"]
+    outputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList"]
+    description: "Write auxiliary file /Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList"
+
+  "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt":
+    tool: write-auxiliary-file
+    inputs: ["<swift-get-version>","/Library/Developer/CommandLineTools/usr/bin/swiftc"]
+    outputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"]
+    always-out-of-date: "true"
+    description: "Write auxiliary file /Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+
+  "<GameLibrary-arm64-apple-macosx-debug.exe>":
+    tool: phony
+    inputs: ["<GameLibrary-arm64-apple-macosx-debug.exe-CodeSigning>"]
+    outputs: ["<GameLibrary-arm64-apple-macosx-debug.exe>"]
+
+  "<GameLibrary-arm64-apple-macosx-debug.module>":
+    tool: phony
+    inputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules/GameLibrary.swiftmodule"]
+    outputs: ["<GameLibrary-arm64-apple-macosx-debug.module>"]
+
+  "C.GameLibrary-arm64-apple-macosx-debug.exe":
+    tool: shell
+    inputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList"]
+    outputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/GameLibrary"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-L","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug","-o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary","-module-name","GameLibrary","-Xlinker","-no_warn_duplicate_libraries","-emit-executable","-Xlinker","-alias","-Xlinker","_GameLibrary_main","-Xlinker","_main","-Xlinker","-rpath","-Xlinker","@loader_path","@/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.product/Objects.LinkFileList","-Xlinker","-rpath","-Xlinker","/Library/Developer/CommandLineTools/usr/lib/swift-6.2/macosx","-target","arm64-apple-macosx14.0","-Xlinker","-add_ast_path","-Xlinker","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules/GameLibrary.swiftmodule","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g"]
+
+  "C.GameLibrary-arm64-apple-macosx-debug.exe-entitlements":
+    tool: shell
+    inputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist"]
+    outputs: ["<GameLibrary-arm64-apple-macosx-debug.exe-CodeSigning>"]
+    description: "Applying debug entitlements to ./.build/arm64-apple-macosx/debug/GameLibrary"
+    args: ["codesign","--force","--sign","-","--entitlements","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary-entitlement.plist","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary"]
+
+  "C.GameLibrary-arm64-apple-macosx-debug.module":
+    tool: shell
+    inputs: ["/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift","/Users/aidan/projects/game-library/code/Sources/Models/Game.swift","/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift","/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources"]
+    outputs: ["/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules/GameLibrary.swiftmodule"]
+    description: "Compiling Swift Module 'GameLibrary' (4 sources)"
+    args: ["/Library/Developer/CommandLineTools/usr/bin/swiftc","-module-name","GameLibrary","-emit-dependencies","-emit-module","-emit-module-path","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules/GameLibrary.swiftmodule","-output-file-map","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/output-file-map.json","-incremental","-c","@/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/sources","-I","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/Modules","-target","arm64-apple-macosx14.0","-incremental","-enable-batch-mode","-serialize-diagnostics","-index-store-path","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-j10","-DSWIFT_PACKAGE","-DDEBUG","-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE","-module-cache-path","/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-Xfrontend","-entry-point-function-name","-Xfrontend","GameLibrary_main","-swift-version","5","-I","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-L","/Library/Developer/CommandLineTools/Library/Developer/Frameworks","-plugin-path","/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing","-sdk","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-g","-Xcc","-isysroot","-Xcc","/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk","-Xcc","-fPIC","-Xcc","-g","-package-name","code"]
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/aidan/projects/game-library/code/Sources/","/Users/aidan/projects/game-library/code/Package.swift","/Users/aidan/projects/game-library/code/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+

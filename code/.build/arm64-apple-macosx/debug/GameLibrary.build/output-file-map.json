@@ -1,0 +1,33 @@
+{
+  "": {
+    "swift-dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/primary.swiftdeps"
+  },
+  "/Users/aidan/projects/game-library/code/Sources/GameLibraryApp.swift": {
+    "dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.d",
+    "object": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swift.o",
+    "swiftmodule": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.swiftdeps",
+    "diagnostics": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameLibraryApp.dia"
+  },
+  "/Users/aidan/projects/game-library/code/Sources/Models/Game.swift": {
+    "dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.d",
+    "object": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swift.o",
+    "swiftmodule": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game~partial.swiftmodule",
+    "swift-dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.swiftdeps",
+    "diagnostics": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Game.dia"
+  },
+  "/Users/aidan/projects/game-library/code/Sources/Models/Platform.swift": {
+    "dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.d",
+    "object": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swift.o",
+    "swiftmodule": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform~partial.swiftmodule",
+    "swift-dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.swiftdeps",
+    "diagnostics": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/Platform.dia"
+  },
+  "/Users/aidan/projects/game-library/code/Sources/Services/GameCatalog.swift": {
+    "dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.d",
+    "object": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swift.o",
+    "swiftmodule": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog~partial.swiftmodule",
+    "swift-dependencies": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.swiftdeps",
+    "diagnostics": "/Users/aidan/projects/game-library/code/.build/arm64-apple-macosx/debug/GameLibrary.build/GameCatalog.dia"
+  }
+}
