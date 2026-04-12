@@ -77,13 +77,7 @@ NINTENDO
      ROM:  /Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - Twilight Princess HD (USA) (EnFrEs) (Rev 2)/Legend of Zelda, The - Twilight Princess HD (USA) (En,Fr,Es) (Rev 2).wux
      Launch: open /Applications/Cemu.app --args -g "<rom_path>"
 
-  7. Assassin's Creed IV: Black Flag
-     Emulator: Cemu (Wii U)
-     App:  /Applications/Cemu.app
-     ROM:  /Users/aidan/Emulators/Nintendo/Cemu/Assassins Creed IV - Black Flag (USA) (EnFrEsPt)/Assassin's Creed IV - Black Flag (USA) (En,Fr,Es,Pt).wux
-     Launch: open /Applications/Cemu.app --args -g "<rom_path>"
-
-  8. The Legend of Zelda: A Link Between Worlds
+  7. The Legend of Zelda: A Link Between Worlds
      Emulator: Citra (3DS)
      App:  /Users/aidan/Emulators/Nintendo/citra/nightly/citra-qt.app
      ROM:  /Users/aidan/Emulators/Nintendo/citra/Legend of Zelda, The - A Link Between Worlds (USA) (En,Fr,Es).3ds

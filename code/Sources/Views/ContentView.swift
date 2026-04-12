@@ -40,6 +40,29 @@ struct ContentView: View {
                         .font(.callout)
                         .foregroundStyle(.secondary)
                 }
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        viewModel.findMissingArt()
+                    } label: {
+                        Label("Find Art", systemImage: "photo.badge.arrow.down")
+                    }
+                    .help("Find cover art for games missing artwork")
+                }
+                ToolbarItem(placement: .automatic) {
+                    Button {
+                        viewModel.scanForGames()
+                    } label: {
+                        Label("Scan for Games", systemImage: "plus.magnifyingglass")
+                    }
+                    .help("Scan Emulators folder for new games")
+                }
+            }
+            .sheet(isPresented: $viewModel.showingScanResults) {
+                ScanResultsView(
+                    scannedGames: viewModel.scannedGames,
+                    onAdd: { viewModel.addScannedGames($0) },
+                    onDismiss: { viewModel.showingScanResults = false }
+                )
             }
         }
         .onAppear {

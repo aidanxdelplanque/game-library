@@ -2,53 +2,57 @@ import Foundation
 
 final class GameCatalog {
     private(set) var games: [Game] = []
-    private let filePath: String?
 
-    /// Load from a specific file path (for user-customized catalogs).
-    init(filePath: String) {
-        self.filePath = filePath
-    }
-
-    /// Load from the bundled games.json resource.
-    init() {
-        self.filePath = nil
+    /// User-writable catalog path in Application Support.
+    static var userCatalogPath: String {
+        let appSupport = FileManager.default.urls(
+            for: .applicationSupportDirectory, in: .userDomainMask
+        ).first!.appendingPathComponent("GameLibrary")
+        try? FileManager.default.createDirectory(
+            at: appSupport, withIntermediateDirectories: true
+        )
+        return appSupport.appendingPathComponent("games.json").path
     }
 
     func load() throws {
-        let url: URL
+        let userPath = Self.userCatalogPath
 
-        if let filePath = filePath {
-            guard FileManager.default.fileExists(atPath: filePath) else {
-                games = []
-                return
-            }
-            url = URL(fileURLWithPath: filePath)
+        if FileManager.default.fileExists(atPath: userPath) {
+            // Load from user catalog
+            let data = try Data(contentsOf: URL(fileURLWithPath: userPath))
+            games = try JSONDecoder().decode([Game].self, from: data)
+        } else if let bundleURL = Bundle.module.url(forResource: "games", withExtension: "json") {
+            // First launch: load from bundle and copy to user location
+            let data = try Data(contentsOf: bundleURL)
+            games = try JSONDecoder().decode([Game].self, from: data)
+            try save()
         } else {
-            guard let bundleURL = Bundle.module.url(
-                forResource: "games",
-                withExtension: "json"
-            ) else {
-                games = []
-                return
-            }
-            url = bundleURL
+            games = []
         }
-
-        let data = try Data(contentsOf: url)
-        let decoder = JSONDecoder()
-        games = try decoder.decode([Game].self, from: data)
     }
 
     func save() throws {
-        guard let filePath = filePath else {
-            // Cannot save back to bundle resources — need a file path
-            return
-        }
-        let url = URL(fileURLWithPath: filePath)
+        let url = URL(fileURLWithPath: Self.userCatalogPath)
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         let data = try encoder.encode(games)
         try data.write(to: url, options: .atomic)
+    }
+
+    func addGames(_ newGames: [Game]) throws {
+        games.append(contentsOf: newGames)
+        try save()
+    }
+
+    func updateGame(id: UUID, mutate: (inout Game) -> Void) throws {
+        guard let idx = games.firstIndex(where: { $0.id == id }) else { return }
+        mutate(&games[idx])
+        try save()
+    }
+
+    func removeGame(id: UUID) throws {
+        games.removeAll { $0.id == id }
+        try save()
     }
 
     func games(for platform: Platform) -> [Game] {

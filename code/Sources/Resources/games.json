@@ -21,8 +21,9 @@
     "id": "A1B2C3D4-0001-0001-0001-000000000003",
     "title": "Super Mario 64",
     "platform": "n64",
-    "launchType": "app",
-    "appPath": "/Users/aidan/Emulators/Nintendo/sm64ex/sm64ex.app",
+    "launchType": "custom",
+    "appPath": "/Users/aidan/Emulators/Nintendo/sm64ex/sm64ex-src/build/us_pc/sm64.us.f3dex2e",
+    "workingDirectory": "/Users/aidan/Emulators/Nintendo/sm64ex/sm64ex-src/build/us_pc",
     "status": "untested",
     "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/e/e9/Super_Mario_64.png"
   },
@@ -60,17 +61,6 @@
     "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/0/0e/The_Legend_of_Zelda_Twilight_Princess_Game_Cover.jpg"
   },
   {
-    "id": "A1B2C3D4-0002-0001-0001-000000000004",
-    "title": "Assassin's Creed IV: Black Flag",
-    "platform": "wiiU",
-    "launchType": "emulatorWithROM",
-    "appPath": "/Applications/Cemu.app",
-    "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Assassins Creed IV - Black Flag (USA) (EnFrEsPt)/Assassin's Creed IV - Black Flag (USA) (En,Fr,Es,Pt).wux",
-    "emulatorArgs": ["-g"],
-    "status": "untested",
-    "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/2/28/Assassin%27s_Creed_IV_-_Black_Flag_cover.jpg"
-  },
-  {
     "id": "A1B2C3D4-0003-0001-0001-000000000001",
     "title": "The Legend of Zelda: A Link Between Worlds",
     "platform": "threeDS",
@@ -86,7 +76,8 @@
     "platform": "ps2",
     "launchType": "custom",
     "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
-    "emulatorArgs": ["--game", "jak1"],
+    "emulatorArgs": ["--game", "jak1", "--proj-path", "/Users/aidan/Emulators/Playstation/OpenGOAL/active/jak1/data"],
+    "workingDirectory": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1",
     "status": "untested",
     "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/b/b6/Jak_and_Daxter_-_The_Precursor_Legacy_Coverart.png"
   },
@@ -96,7 +87,8 @@
     "platform": "ps2",
     "launchType": "custom",
     "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
-    "emulatorArgs": ["--game", "jak2"],
+    "emulatorArgs": ["--game", "jak2", "--proj-path", "/Users/aidan/Emulators/Playstation/OpenGOAL/active/jak2/data"],
+    "workingDirectory": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1",
     "status": "untested",
     "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/b/b3/JakIIbox.jpg"
   },
@@ -107,7 +99,8 @@
     "launchType": "custom",
     "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
     "emulatorArgs": ["--game", "jak3"],
-    "status": "untested",
+    "workingDirectory": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1",
+    "status": "broken",
     "coverArtURL": "https://upload.wikimedia.org/wikipedia/en/e/ec/Jak_3_Coverart.png"
   },
   {

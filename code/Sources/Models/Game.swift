@@ -8,6 +8,7 @@ struct Game: Codable, Identifiable {
     var appPath: String
     var romPath: String?
     var emulatorArgs: [String]?
+    var workingDirectory: String?
     var status: Status
     var coverArtURL: String?
     var coverArtLocalPath: String?
@@ -32,6 +33,7 @@ struct Game: Codable, Identifiable {
         appPath: String,
         romPath: String? = nil,
         emulatorArgs: [String]? = nil,
+        workingDirectory: String? = nil,
         status: Status = .untested,
         coverArtURL: String? = nil,
         coverArtLocalPath: String? = nil
@@ -43,6 +45,7 @@ struct Game: Codable, Identifiable {
         self.appPath = appPath
         self.romPath = romPath
         self.emulatorArgs = emulatorArgs
+        self.workingDirectory = workingDirectory
         self.status = status
         self.coverArtURL = coverArtURL
         self.coverArtLocalPath = coverArtLocalPath

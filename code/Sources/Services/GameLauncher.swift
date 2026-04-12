@@ -25,34 +25,17 @@ final class GameLauncher {
 
     // MARK: - Launch Strategies
 
-    /// Launch a .app bundle or .dmg via NSWorkspace (same as double-clicking in Finder).
+    /// Launch a .app bundle via `open` (same as double-clicking in Finder).
     private func launchApp(_ game: Game) -> LaunchResult {
-        let url = URL(fileURLWithPath: game.appPath)
-
         guard FileManager.default.fileExists(atPath: game.appPath) else {
             return .failure("App not found at: \(game.appPath)")
         }
 
-        do {
-            let config = NSWorkspace.OpenConfiguration()
-            let semaphore = DispatchSemaphore(value: 0)
-            var openError: Error?
-
-            NSWorkspace.shared.openApplication(
-                at: url,
-                configuration: config
-            ) { _, error in
-                openError = error
-                semaphore.signal()
-            }
-
-            semaphore.wait()
-
-            if let error = openError {
-                return .failure("Failed to open \(game.title): \(error.localizedDescription)")
-            }
-            return .success
-        }
+        return runProcess(
+            executablePath: "/usr/bin/open",
+            arguments: [game.appPath],
+            description: game.title
+        )
     }
 
     /// Launch an emulator app with ROM path as an argument.
@@ -97,6 +80,7 @@ final class GameLauncher {
         return runProcess(
             executablePath: game.appPath,
             arguments: game.emulatorArgs ?? [],
+            workingDirectory: game.workingDirectory,
             description: game.title
         )
     }
@@ -106,11 +90,15 @@ final class GameLauncher {
     private func runProcess(
         executablePath: String,
         arguments: [String],
+        workingDirectory: String? = nil,
         description: String
     ) -> LaunchResult {
         let process = Process()
         process.executableURL = URL(fileURLWithPath: executablePath)
         process.arguments = arguments
+        if let dir = workingDirectory {
+            process.currentDirectoryURL = URL(fileURLWithPath: dir)
+        }
 
         do {
             try process.run()
