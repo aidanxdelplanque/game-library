@@ -3,6 +3,11 @@ import SwiftUI
 struct ContentView: View {
     @StateObject private var viewModel = LibraryViewModel()
 
+    private var gameCountLabel: String {
+        let count = viewModel.filteredGames.count
+        return count == 1 ? "1 game" : "\(count) games"
+    }
+
     var body: some View {
         NavigationSplitView {
             PlatformSidebar(
@@ -14,13 +19,28 @@ struct ContentView: View {
         } detail: {
             GameGridView(
                 games: viewModel.filteredGames,
-                coverImageForGame: { viewModel.coverImage(for: $0) }
-            ) { game in
-                viewModel.launch(game: game)
-            }
+                searchText: viewModel.searchText,
+                launchingGameID: viewModel.launchingGameID,
+                coverImageForGame: { viewModel.coverImage(for: $0) },
+                onLaunch: { viewModel.launch(game: $0) },
+                onShowInFinder: { viewModel.showInFinder(game: $0) },
+                onCopyPath: { viewModel.copyPath(game: $0) }
+            )
             .navigationTitle(
                 viewModel.selectedPlatform?.displayName ?? "All Games"
             )
+            .searchable(
+                text: $viewModel.searchText,
+                placement: .toolbar,
+                prompt: "Search games"
+            )
+            .toolbar {
+                ToolbarItem(placement: .automatic) {
+                    Text(gameCountLabel)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+            }
         }
         .onAppear {
             viewModel.loadCatalog()

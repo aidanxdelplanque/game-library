@@ -3,7 +3,7 @@ import SwiftUI
 @main
 struct GameLibraryApp: App {
     var body: some Scene {
-        WindowGroup("Game Library") {
+        WindowGroup("Game Library", id: "main-window") {
             ContentView()
                 .frame(minWidth: 600, minHeight: 400)
         }

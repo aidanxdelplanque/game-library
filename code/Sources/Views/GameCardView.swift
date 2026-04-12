@@ -4,13 +4,15 @@ import AppKit
 struct GameCardView: View {
     let game: Game
     let coverImage: NSImage?
+    let isLaunching: Bool
     let onLaunch: () -> Void
 
     @State private var isHovered = false
 
-    init(game: Game, coverImage: NSImage? = nil, onLaunch: @escaping () -> Void) {
+    init(game: Game, coverImage: NSImage? = nil, isLaunching: Bool = false, onLaunch: @escaping () -> Void) {
         self.game = game
         self.coverImage = coverImage
+        self.isLaunching = isLaunching
         self.onLaunch = onLaunch
     }
 
@@ -88,9 +90,11 @@ struct GameCardView: View {
                 }
                 .clipShape(RoundedRectangle(cornerRadius: 8))
             }
-            .scaleEffect(isHovered ? 1.04 : 1.0)
+            .scaleEffect(isLaunching ? 0.95 : (isHovered ? 1.04 : 1.0))
+            .opacity(isLaunching ? 0.6 : 1.0)
             .shadow(color: .black.opacity(isHovered ? 0.3 : 0.15), radius: isHovered ? 8 : 4)
             .animation(.easeOut(duration: 0.15), value: isHovered)
+            .animation(.easeInOut(duration: 0.2), value: isLaunching)
             .onHover { hovering in
                 isHovered = hovering
             }
