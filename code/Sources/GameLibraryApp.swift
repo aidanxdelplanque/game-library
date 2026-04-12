@@ -8,5 +8,9 @@ struct GameLibraryApp: App {
                 .frame(minWidth: 600, minHeight: 400)
         }
         .defaultSize(width: 900, height: 600)
+
+        Settings {
+            SettingsView()
+        }
     }
 }

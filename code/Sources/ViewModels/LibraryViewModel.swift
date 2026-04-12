@@ -14,9 +14,12 @@ final class LibraryViewModel: ObservableObject {
 
     private let catalog = GameCatalog()
     private let launcher = GameLauncher()
-    private let scanner = GameScanner()
     let coverArtService = CoverArtService()
     private var cancellables = Set<AnyCancellable>()
+
+    private var scanner: GameScanner {
+        GameScanner(emulatorsRoot: AppSettings.shared.emulatorsRoot ?? "")
+    }
 
     init() {
         coverArtService.objectWillChange
@@ -91,7 +94,7 @@ final class LibraryViewModel: ObservableObject {
     func scanForGames() {
         scannedGames = scanner.scan(existingGames: games)
         if scannedGames.isEmpty {
-            launchError = "No new games found in /Users/aidan/Emulators/"
+            launchError = "No new games found in \(AppSettings.shared.emulatorsRoot ?? "emulators folder")"
         } else {
             showingScanResults = true
         }

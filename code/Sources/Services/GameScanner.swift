@@ -43,7 +43,7 @@ final class GameScanner {
         "pikmin": "https://upload.wikimedia.org/wikipedia/en/e/e4/Pikmin_cover_art.jpg",
     ]
 
-    init(emulatorsRoot: String = "/Users/aidan/Emulators") {
+    init(emulatorsRoot: String) {
         self.emulatorsRoot = emulatorsRoot
     }
 
