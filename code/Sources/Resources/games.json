@@ -1,0 +1,134 @@
+[
+  {
+    "id": "A1B2C3D4-0001-0001-0001-000000000001",
+    "title": "The Legend of Zelda: Ocarina of Time",
+    "platform": "n64",
+    "launchType": "app",
+    "appPath": "/Users/aidan/Emulators/Nintendo/Ship of Harkinian/SoH-Ackbar-Bravo-Mac/SoH.dmg",
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0001-0001-0001-000000000002",
+    "title": "The Legend of Zelda: Majora's Mask",
+    "platform": "n64",
+    "launchType": "app",
+    "appPath": "/Users/aidan/Emulators/Nintendo/2 Ship 2 Harkinian/2s2h.app",
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0001-0001-0001-000000000003",
+    "title": "Super Mario 64",
+    "platform": "n64",
+    "launchType": "app",
+    "appPath": "/Users/aidan/Emulators/Nintendo/sm64ex/sm64ex.app",
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0002-0001-0001-000000000001",
+    "title": "The Legend of Zelda: Breath of the Wild",
+    "platform": "wiiU",
+    "launchType": "emulatorWithROM",
+    "appPath": "/Applications/Cemu.app",
+    "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - Breath of the Wild (USA) (EnFrEs)/Legend of Zelda, The - Breath of the Wild (USA) (En,Fr,Es).wux",
+    "emulatorArgs": ["-g"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0002-0001-0001-000000000002",
+    "title": "The Legend of Zelda: The Wind Waker HD",
+    "platform": "wiiU",
+    "launchType": "emulatorWithROM",
+    "appPath": "/Applications/Cemu.app",
+    "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - The Wind Waker HD (USA Asia) (EnFrEs)/Legend of Zelda, The - The Wind Waker HD (USA, Asia) (En,Fr,Es).wux",
+    "emulatorArgs": ["-g"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0002-0001-0001-000000000003",
+    "title": "The Legend of Zelda: Twilight Princess HD",
+    "platform": "wiiU",
+    "launchType": "emulatorWithROM",
+    "appPath": "/Applications/Cemu.app",
+    "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Legend of Zelda The - Twilight Princess HD (USA) (EnFrEs) (Rev 2)/Legend of Zelda, The - Twilight Princess HD (USA) (En,Fr,Es) (Rev 2).wux",
+    "emulatorArgs": ["-g"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0002-0001-0001-000000000004",
+    "title": "Assassin's Creed IV: Black Flag",
+    "platform": "wiiU",
+    "launchType": "emulatorWithROM",
+    "appPath": "/Applications/Cemu.app",
+    "romPath": "/Users/aidan/Emulators/Nintendo/Cemu/Assassins Creed IV - Black Flag (USA) (EnFrEsPt)/Assassin's Creed IV - Black Flag (USA) (En,Fr,Es,Pt).wux",
+    "emulatorArgs": ["-g"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0003-0001-0001-000000000001",
+    "title": "The Legend of Zelda: A Link Between Worlds",
+    "platform": "threeDS",
+    "launchType": "emulatorWithROM",
+    "appPath": "/Users/aidan/Emulators/Nintendo/citra/nightly/citra-qt.app",
+    "romPath": "/Users/aidan/Emulators/Nintendo/citra/Legend of Zelda, The - A Link Between Worlds (USA) (En,Fr,Es).3ds",
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0004-0001-0001-000000000001",
+    "title": "Jak and Daxter: The Precursor Legacy",
+    "platform": "ps2",
+    "launchType": "custom",
+    "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
+    "emulatorArgs": ["--game", "jak1"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0004-0001-0001-000000000002",
+    "title": "Jak II",
+    "platform": "ps2",
+    "launchType": "custom",
+    "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
+    "emulatorArgs": ["--game", "jak2"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0004-0001-0001-000000000003",
+    "title": "Jak 3",
+    "platform": "ps2",
+    "launchType": "custom",
+    "appPath": "/Users/aidan/Emulators/Playstation/OpenGOAL/versions/official/v0.3.1/gk",
+    "emulatorArgs": ["--game", "jak3"],
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0004-0001-0001-000000000004",
+    "title": "Sly Cooper and the Thievius Raccoonus",
+    "platform": "ps2",
+    "launchType": "app",
+    "appPath": "",
+    "status": "broken"
+  },
+  {
+    "id": "A1B2C3D4-0006-0001-0001-000000000001",
+    "title": "Diablo",
+    "platform": "pc",
+    "launchType": "app",
+    "appPath": "/Users/aidan/Emulators/PC/DevilutionX/devilutionX.app",
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0006-0001-0001-000000000002",
+    "title": "Fallout",
+    "platform": "pc",
+    "launchType": "app",
+    "appPath": "/Users/aidan/Emulators/PC/Fallout 1 CE/Fallout Community Edition.app",
+    "status": "untested"
+  },
+  {
+    "id": "A1B2C3D4-0006-0001-0001-000000000003",
+    "title": "Fallout 2",
+    "platform": "pc",
+    "launchType": "app",
+    "appPath": "/Users/aidan/Emulators/PC/Fallout 2 CE/Fallout II Community Edition.app",
+    "status": "untested"
+  }
+]

@@ -10,7 +10,10 @@ let package = Package(
     targets: [
         .executableTarget(
             name: "GameLibrary",
-            path: "Sources"
+            path: "Sources",
+            resources: [
+                .copy("Resources/games.json")
+            ]
         )
     ]
 )

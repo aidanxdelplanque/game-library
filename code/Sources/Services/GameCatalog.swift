@@ -2,18 +2,36 @@ import Foundation
 
 final class GameCatalog {
     private(set) var games: [Game] = []
-    private let filePath: String
+    private let filePath: String?
 
+    /// Load from a specific file path (for user-customized catalogs).
     init(filePath: String) {
         self.filePath = filePath
     }
 
-    func load() throws {
-        let url = URL(fileURLWithPath: filePath)
+    /// Load from the bundled games.json resource.
+    init() {
+        self.filePath = nil
+    }
 
-        guard FileManager.default.fileExists(atPath: filePath) else {
-            games = []
-            return
+    func load() throws {
+        let url: URL
+
+        if let filePath = filePath {
+            guard FileManager.default.fileExists(atPath: filePath) else {
+                games = []
+                return
+            }
+            url = URL(fileURLWithPath: filePath)
+        } else {
+            guard let bundleURL = Bundle.module.url(
+                forResource: "games",
+                withExtension: "json"
+            ) else {
+                games = []
+                return
+            }
+            url = bundleURL
         }
 
         let data = try Data(contentsOf: url)
@@ -22,6 +40,10 @@ final class GameCatalog {
     }
 
     func save() throws {
+        guard let filePath = filePath else {
+            // Cannot save back to bundle resources — need a file path
+            return
+        }
         let url = URL(fileURLWithPath: filePath)
         let encoder = JSONEncoder()
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
