@@ -255,12 +255,12 @@ TASK 2.2 — Auto-Scan for New Games
 ================================================================================
 STATUS TRACKER
 ================================================================================
-  Task  0.1  Swift Package Setup ..................... TODO
-  Task  0.2  Data Models ............................ TODO
-  Task  0.3  Game Catalog & Launch Commands ......... TODO
-  Task  1.1  Platform Sidebar + Game Grid Shell ..... TODO
-  Task  1.2  Cover Art System ....................... TODO
-  Task  1.3  Search & Polish ........................ TODO
+  Task  0.1  Swift Package Setup ..................... DONE
+  Task  0.2  Data Models ............................ DONE
+  Task  0.3  Game Catalog & Launch Commands ......... DONE
+  Task  1.1  Platform Sidebar + Game Grid Shell ..... DONE
+  Task  1.2  Cover Art System ....................... DONE
+  Task  1.3  Search & Polish ........................ DONE
   Task  2.1  Favorites & Recently Played ............ TODO
   Task  2.2  Auto-Scan for New Games ................ TODO
 

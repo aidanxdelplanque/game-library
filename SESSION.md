@@ -1,26 +1,35 @@
 # Game Library — Session Log
 **Last updated:** 2026-04-11
-**Session focus:** Project creation and planning
+**Session focus:** Full build from zero to installed app
 
 ## What happened
-- Inventoried all emulators and games on the system under /Users/aidan/Emulators/
-- Identified 16 games across Nintendo (SoH, 2Ship, sm64ex, Cemu, Citra), PlayStation (OpenGOAL, shadPS4, Sly Cooper), and PC (DevilutionX, Fallout 1 & 2 CE)
-- Chose SwiftUI for native macOS app (instant launch, single dock icon)
-- Created PLAN.md with full game inventory, launch commands, and phased task breakdown
-- Noted future streaming requirement — architecture keeps data layer separate from UI
-- Added absolute rule: launcher never touches emulator configs or settings
+- Created project plan with 16-game inventory across Nintendo, PlayStation, PC
+- Built Swift package with data models (Game, Platform, GameCatalog, GameLauncher)
+- Built full SwiftUI UI: platform sidebar, game grid, cover art, search, context menus
+- Found and fixed all launch commands (SoH was in /Applications, not a DMG)
+- Downloaded cover art from Wikipedia for all 15 games (10 URLs needed fixing)
+- Improved grid tiling: bigger cards, title below art, 3:4 aspect ratio
+- Created build-app.sh for proper .app bundle generation
+- Added custom AI-generated app icon (AppIcon.icns)
+- Installed to /Applications/Game Library.app with dock icon
+- Pushed to github.com/aidanxdelplanque/game-library
 
 ## Decisions made
-- SwiftUI over web UI for instant launch and native feel
-- MVVM with SwiftUI-independent data layer (future server extraction)
-- SteamGridDB or IGDB for cover art sourcing
-- JSON-based game catalog as source of truth
-- Swift Package Manager (not Xcode project) for CLI-friendly builds
+- SwiftUI with MVVM (data layer independent of views for future server use)
+- Swift Package Manager over Xcode project for CLI-friendly builds
+- Wikipedia cover art (free, no API key needed)
+- Title below cover art instead of overlaid for cleaner look
+- build-app.sh script for rebuild/reinstall workflow
 
 ## Blockers / Open questions
-- Several launch commands still TBD (SoH, 2Ship, DevilutionX, OpenGOAL, Fallout 2 CE, shadPS4) — need filesystem inspection during Task 0.3
-- Sly Cooper may not be playable yet (recomp project in progress)
-- Cover art API choice not finalized (SteamGridDB vs IGDB)
+- Some games still marked "untested" — need to click each and verify launch
+- Sly Cooper marked "broken" (recomp project not ready yet)
+- shadPS4 has no games downloaded yet
+- Cover art is Wikipedia quality (small) — could upgrade to SteamGridDB for higher res
 
 ## Next session should
-- Start implementation: Task 0.1 (Swift package setup) → 0.2 (data models) → 0.3 (game catalog with real launch commands)
+- Test all game launches and mark status as working/broken
+- Task 2.1: Favorites & Recently Played
+- Task 2.2: Auto-scan for new games
+- Consider higher-res cover art source (SteamGridDB API)
+- Parked: remote streaming architecture
