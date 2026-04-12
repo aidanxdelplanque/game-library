@@ -1,4 +1,6 @@
 import SwiftUI
+import AppKit
+import Combine
 
 @MainActor
 final class LibraryViewModel: ObservableObject {
@@ -8,6 +10,16 @@ final class LibraryViewModel: ObservableObject {
 
     private let catalog = GameCatalog()
     private let launcher = GameLauncher()
+    let coverArtService = CoverArtService()
+    private var cancellables = Set<AnyCancellable>()
+
+    init() {
+        // Forward cover art service changes so the UI refreshes when images download
+        coverArtService.objectWillChange
+            .receive(on: RunLoop.main)
+            .sink { [weak self] _ in self?.objectWillChange.send() }
+            .store(in: &cancellables)
+    }
 
     var filteredGames: [Game] {
         let base: [Game]
@@ -24,9 +36,19 @@ final class LibraryViewModel: ObservableObject {
         catalog.games(for: platform).count
     }
 
+    /// Returns the cached cover art image for a game, if available.
+    func coverImage(for game: Game) -> NSImage? {
+        coverArtService.cachedImage(for: game)
+    }
+
     func loadCatalog() {
         try! catalog.load()
         games = catalog.games
+
+        // Kick off cover art downloads in the background
+        Task {
+            await coverArtService.downloadAllCoverArt(for: games)
+        }
     }
 
     func launch(game: Game) {

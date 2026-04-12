@@ -12,7 +12,10 @@ struct ContentView: View {
             )
             .navigationSplitViewColumnWidth(min: 160, ideal: 200)
         } detail: {
-            GameGridView(games: viewModel.filteredGames) { game in
+            GameGridView(
+                games: viewModel.filteredGames,
+                coverImageForGame: { viewModel.coverImage(for: $0) }
+            ) { game in
                 viewModel.launch(game: game)
             }
             .navigationTitle(

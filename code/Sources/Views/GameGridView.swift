@@ -1,7 +1,9 @@
 import SwiftUI
+import AppKit
 
 struct GameGridView: View {
     let games: [Game]
+    let coverImageForGame: (Game) -> NSImage?
     let onLaunch: (Game) -> Void
 
     private let columns = [
@@ -19,7 +21,10 @@ struct GameGridView: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(games) { game in
-                        GameCardView(game: game) {
+                        GameCardView(
+                            game: game,
+                            coverImage: coverImageForGame(game)
+                        ) {
                             onLaunch(game)
                         }
                     }

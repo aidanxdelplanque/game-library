@@ -1,10 +1,18 @@
 import SwiftUI
+import AppKit
 
 struct GameCardView: View {
     let game: Game
+    let coverImage: NSImage?
     let onLaunch: () -> Void
 
     @State private var isHovered = false
+
+    init(game: Game, coverImage: NSImage? = nil, onLaunch: @escaping () -> Void) {
+        self.game = game
+        self.coverImage = coverImage
+        self.onLaunch = onLaunch
+    }
 
     private var platformColor: Color {
         Color(hex: game.platform.colorHex)
@@ -21,9 +29,24 @@ struct GameCardView: View {
     var body: some View {
         Button(action: onLaunch) {
             ZStack(alignment: .bottom) {
-                // Placeholder cover: colored rectangle in 2:3 aspect ratio
+                // Cover art or fallback colored rectangle, in 2:3 aspect ratio
+                if let coverImage {
+                    Image(nsImage: coverImage)
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                        .clipped()
+                        .aspectRatio(2.0 / 3.0, contentMode: .fit)
+                        .clipShape(RoundedRectangle(cornerRadius: 8))
+                } else {
+                    RoundedRectangle(cornerRadius: 8)
+                        .fill(platformColor.gradient)
+                        .aspectRatio(2.0 / 3.0, contentMode: .fit)
+                }
+
+                // Overlays (platform badge + status dot + title) on top of everything
                 RoundedRectangle(cornerRadius: 8)
-                    .fill(platformColor.gradient)
+                    .fill(.clear)
                     .aspectRatio(2.0 / 3.0, contentMode: .fit)
                     .overlay(alignment: .topTrailing) {
                         // Platform badge
