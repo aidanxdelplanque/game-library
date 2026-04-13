@@ -51,12 +51,31 @@ struct ContentView: View {
                             .foregroundStyle(.secondary)
                     }
                     ToolbarItem(placement: .automatic) {
-                        Button {
-                            viewModel.findMissingArt()
+                        Menu {
+                            ForEach(EmulatorShortcut.available, id: \.name) { emu in
+                                Button {
+                                    emu.launch()
+                                } label: {
+                                    Text(emu.name)
+                                }
+                            }
                         } label: {
-                            Label("Find Art", systemImage: "photo.badge.arrow.down")
+                            Label("Emulators", systemImage: "wrench.and.screwdriver")
                         }
-                        .help("Find cover art for games missing artwork")
+                        .help("Open an emulator to configure settings")
+                    }
+                    ToolbarItem(placement: .automatic) {
+                        Menu {
+                            Button("Find Missing Art") {
+                                viewModel.findMissingArt()
+                            }
+                            Button("Refresh All Art") {
+                                viewModel.refreshAllArt()
+                            }
+                        } label: {
+                            Label("Cover Art", systemImage: "photo.badge.arrow.down")
+                        }
+                        .help("Download or refresh cover art")
                     }
                     ToolbarItem(placement: .automatic) {
                         Button {

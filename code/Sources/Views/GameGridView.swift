@@ -11,7 +11,7 @@ struct GameGridView: View {
     let onCopyPath: (Game) -> Void
 
     private let columns = [
-        GridItem(.adaptive(minimum: 180), spacing: 20)
+        GridItem(.adaptive(minimum: 160), spacing: 16)
     ]
 
     var body: some View {
@@ -27,7 +27,7 @@ struct GameGridView: View {
             }
         } else {
             ScrollView {
-                LazyVGrid(columns: columns, spacing: 24) {
+                LazyVGrid(columns: columns, spacing: 16) {
                     ForEach(games) { game in
                         GameCardView(
                             game: game,

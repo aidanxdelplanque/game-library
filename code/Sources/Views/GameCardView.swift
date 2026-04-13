@@ -30,57 +30,68 @@ struct GameCardView: View {
 
     var body: some View {
         Button(action: onLaunch) {
-            VStack(spacing: 8) {
-                // Cover art area
-                ZStack(alignment: .topTrailing) {
+            // Fixed 3:4 container — everything is clipped to this shape
+            Color.clear
+                .aspectRatio(3.0 / 4.0, contentMode: .fit)
+                .overlay {
+                    // Cover art fills the entire frame, cropped to fit
                     if let coverImage {
                         Image(nsImage: coverImage)
                             .resizable()
                             .aspectRatio(contentMode: .fill)
-                            .frame(minWidth: 0, maxWidth: .infinity)
-                            .aspectRatio(3.0 / 4.0, contentMode: .fit)
-                            .clipped()
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
                     } else {
-                        RoundedRectangle(cornerRadius: 10)
+                        Rectangle()
                             .fill(platformColor.gradient)
-                            .aspectRatio(3.0 / 4.0, contentMode: .fit)
+                            .overlay {
+                                Text(game.platform.shortName)
+                                    .font(.title2.bold())
+                                    .foregroundStyle(.white.opacity(0.5))
+                            }
                     }
-
-                    // Platform badge
-                    Text(game.platform.shortName)
-                        .font(.caption2.bold())
-                        .foregroundStyle(.white)
-                        .padding(.horizontal, 6)
-                        .padding(.vertical, 3)
-                        .background(.black.opacity(0.55), in: Capsule())
-                        .padding(8)
                 }
+                .overlay(alignment: .bottom) {
+                    // Title bar — always visible on every card
+                    VStack(alignment: .leading, spacing: 3) {
+                        HStack(spacing: 5) {
+                            Circle()
+                                .fill(statusColor)
+                                .frame(width: 6, height: 6)
 
-                // Title and status below the art
-                HStack(alignment: .top, spacing: 4) {
-                    Circle()
-                        .fill(statusColor)
-                        .frame(width: 7, height: 7)
-                        .padding(.top, 4)
+                            Text(game.platform.shortName)
+                                .font(.system(size: 10, weight: .bold))
+                                .foregroundStyle(.white.opacity(0.8))
+                        }
 
-                    Text(game.title)
-                        .font(.subheadline.weight(.medium))
-                        .foregroundStyle(.primary)
-                        .lineLimit(2)
-                        .multilineTextAlignment(.leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        Text(game.title)
+                            .font(.system(size: 12, weight: .semibold))
+                            .foregroundStyle(.white)
+                            .lineLimit(2)
+                            .multilineTextAlignment(.leading)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 8)
+                    .background(
+                        LinearGradient(
+                            stops: [
+                                .init(color: .clear, location: 0),
+                                .init(color: .black.opacity(0.7), location: 0.3),
+                                .init(color: .black.opacity(0.9), location: 1.0),
+                            ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    )
                 }
-                .padding(.horizontal, 4)
-            }
-            .scaleEffect(isLaunching ? 0.95 : (isHovered ? 1.03 : 1.0))
-            .opacity(isLaunching ? 0.6 : 1.0)
-            .shadow(color: .black.opacity(isHovered ? 0.25 : 0.1), radius: isHovered ? 8 : 4, y: isHovered ? 4 : 2)
-            .animation(.easeOut(duration: 0.15), value: isHovered)
-            .animation(.easeInOut(duration: 0.2), value: isLaunching)
-            .onHover { hovering in
-                isHovered = hovering
-            }
+                .clipShape(RoundedRectangle(cornerRadius: 10))
+                .scaleEffect(isLaunching ? 0.95 : (isHovered ? 1.03 : 1.0))
+                .opacity(isLaunching ? 0.6 : 1.0)
+                .shadow(color: .black.opacity(isHovered ? 0.35 : 0.15), radius: isHovered ? 10 : 5, y: isHovered ? 5 : 2)
+                .animation(.easeOut(duration: 0.15), value: isHovered)
+                .animation(.easeInOut(duration: 0.2), value: isLaunching)
+                .onHover { hovering in
+                    isHovered = hovering
+                }
         }
         .buttonStyle(.plain)
     }

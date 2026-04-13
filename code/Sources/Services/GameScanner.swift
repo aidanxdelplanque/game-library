@@ -81,9 +81,11 @@ final class GameScanner {
 
         var discovered: [ScannedGame] = []
 
+        discovered += scanParallelLauncher(existingPaths: existingPaths)
         discovered += scanDolphin(existingPaths: existingPaths)
         discovered += scanCemu(existingPaths: existingPaths)
         discovered += scanCitra(existingPaths: existingPaths)
+        discovered += scanPCSX2(existingPaths: existingPaths)
         discovered += scanShadPS4(existingPaths: existingPaths)
 
         return discovered.sorted { $0.title < $1.title }
@@ -144,6 +146,32 @@ final class GameScanner {
         }
 
         return nil
+    }
+
+    // MARK: - Parallel Launcher (N64)
+
+    private func scanParallelLauncher(existingPaths: Set<String>) -> [ScannedGame] {
+        let n64Dir = (emulatorsRoot as NSString).appendingPathComponent("Nintendo/N64")
+        guard fm.fileExists(atPath: n64Dir) else { return [] }
+
+        let parallelApp = "/Applications/parallel-launcher.app"
+        guard fm.fileExists(atPath: parallelApp) else { return [] }
+
+        let romExtensions: Set<String> = ["z64", "n64", "v64", "zip"]
+
+        return scanDirectory(n64Dir, extensions: romExtensions, existingPaths: existingPaths)
+            .map { path in
+                let title = cleanTitle(from: path)
+                return ScannedGame(
+                    title: title,
+                    platform: .n64,
+                    launchType: .emulatorWithROM,
+                    appPath: parallelApp,
+                    romPath: path,
+                    coverArtURL: findCoverArt(for: title),
+                    filePath: path
+                )
+            }
     }
 
     // MARK: - Dolphin (GameCube / Wii)
@@ -274,6 +302,41 @@ final class GameScanner {
                     filePath: path
                 )
             }
+    }
+
+    // MARK: - PCSX2 (PS2)
+
+    private func scanPCSX2(existingPaths: Set<String>) -> [ScannedGame] {
+        // Scan multiple PS2 directories
+        let ps2Dirs = [
+            (emulatorsRoot as NSString).appendingPathComponent("Playstation/ps2"),
+            (emulatorsRoot as NSString).appendingPathComponent("Playstation/Sly Cooper"),
+        ]
+
+        let pcsx2App = "/Applications/PCSX2.app"
+        guard fm.fileExists(atPath: pcsx2App) else { return [] }
+
+        let romExtensions: Set<String> = ["iso", "bin", "chd", "cso", "gz", "zip"]
+        var results: [ScannedGame] = []
+
+        for dir in ps2Dirs {
+            guard fm.fileExists(atPath: dir) else { continue }
+            let files = scanDirectory(dir, extensions: romExtensions, existingPaths: existingPaths)
+            for path in files {
+                let title = cleanTitle(from: path)
+                results.append(ScannedGame(
+                    title: title,
+                    platform: .ps2,
+                    launchType: .emulatorWithROM,
+                    appPath: pcsx2App,
+                    romPath: path,
+                    coverArtURL: findCoverArt(for: title),
+                    filePath: path
+                ))
+            }
+        }
+
+        return results
     }
 
     // MARK: - shadPS4

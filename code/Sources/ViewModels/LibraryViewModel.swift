@@ -101,23 +101,23 @@ final class LibraryViewModel: ObservableObject {
     }
 
     func findMissingArt() {
-        var updated: [Game] = []
-        for game in games where game.coverArtURL == nil {
-            if let url = scanner.findCoverArt(for: game.title) {
-                do {
-                    try catalog.updateGame(id: game.id) { $0.coverArtURL = url }
-                    updated.append(catalog.games.first { $0.id == game.id }!)
-                } catch {}
-            }
-        }
-        games = catalog.games
+        // Find games that have no cached cover art on disk
+        let missingArt = games.filter { coverArtService.coverArtPath(for: $0) == nil }
 
-        if updated.isEmpty {
-            launchError = "No cover art found for games missing artwork"
-        } else {
-            Task {
-                await coverArtService.downloadAllCoverArt(for: updated)
-            }
+        if missingArt.isEmpty {
+            launchError = "All games already have cover art"
+            return
+        }
+
+        // Download art for games missing cached files — service tries libretro first, then coverArtURL
+        Task {
+            await coverArtService.downloadAllCoverArt(for: missingArt)
+        }
+    }
+
+    func refreshAllArt() {
+        Task {
+            await coverArtService.refreshAllCoverArt(for: games)
         }
     }
 
