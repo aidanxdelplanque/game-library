@@ -6,7 +6,8 @@ A native macOS app that replaces a dock full of emulators and PC ports with one 
 
 - **Unified launcher** — one app for all your emulators and PC game ports
 - **Auto-scan** — point it at your emulators folder and it discovers your games automatically
-- **Cover art** — downloads and caches cover art from Wikipedia
+- **Cover art** — downloads box art from libretro-thumbnails (with Wikipedia fallback)
+- **Emulator settings** — open any emulator directly from the toolbar for configuration
 - **Platform sidebar** — filter by system (N64, GameCube, Wii U, 3DS, PS2, PS4, PC)
 - **Search** — find any game instantly with Cmd+F
 - **Auto-extract** — automatically unzips compressed ROMs during scan
@@ -16,9 +17,11 @@ A native macOS app that replaces a dock full of emulators and PC ports with one 
 
 | Emulator | Systems | ROM Formats |
 |----------|---------|-------------|
+| [Parallel Launcher](https://parallel-launcher.ca) | Nintendo 64 | .z64, .n64, .v64 |
 | [Dolphin](https://dolphin-emu.org) | GameCube, Wii | .iso, .gcm, .wbfs, .wia, .rvz |
 | [Cemu](https://cemu.info) | Wii U | .wux, .wud, folder format |
 | [Citra](https://citra-emu.org) | Nintendo 3DS | .3ds, .cia |
+| [PCSX2](https://pcsx2.net) | PlayStation 2 | .iso, .bin, .chd, .cso |
 | [shadPS4](https://shadps4.net) | PlayStation 4 | eboot.bin folders |
 | [OpenGOAL](https://opengoal.dev) | PS2 (Jak series) | Custom binary |
 | [Ship of Harkinian](https://shipofharkinian.com) | N64 (Zelda OoT) | Native port |
@@ -29,7 +32,7 @@ A native macOS app that replaces a dock full of emulators and PC ports with one 
 
 ## Requirements
 
-- macOS 14 (Sonoma) or later
+- **macOS 14 (Sonoma) or later** — this is a native macOS app (SwiftUI + AppKit) and does not run on Windows or Linux
 - Your emulators installed (either in /Applications or in your emulators folder)
 - ROM files in your emulators folder
 
@@ -62,10 +65,12 @@ Game Library expects your emulators folder to be organized by system. Example:
 │   ├── dolphin/          ← GameCube/Wii ROMs here
 │   ├── Cemu/             ← Wii U ROMs (.wux or folder format)
 │   ├── citra/            ← 3DS ROMs
+│   ├── N64/              ← N64 ROMs (Parallel Launcher)
 │   ├── sm64ex/           ← SM64 native port
 │   ├── Ship of Harkinian/
 │   └── 2 Ship 2 Harkinian/
 ├── Playstation/
+│   ├── ps2/              ← PS2 ISOs (PCSX2)
 │   ├── OpenGOAL/         ← Jak & Daxter ports
 │   ├── PS4/Games/        ← shadPS4 game folders
 │   └── Sly Cooper/
@@ -84,7 +89,7 @@ There are two ways to add games:
 
 ## Cover art
 
-Cover art is downloaded from Wikipedia and cached in `~/Library/Caches/GameLibrary/covers/`. If art is missing for a game, click the "Find Art" button in the toolbar.
+Cover art is sourced from [libretro-thumbnails](https://github.com/libretro-thumbnails) with Wikipedia as a fallback, and cached in `~/Library/Caches/GameLibrary/covers/`. Use the "Cover Art" toolbar menu to find missing art or refresh all art.
 
 ## Settings
 
